@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AARP Special Report — The $500,000 Alzheimer's Lie</title>
+<style>
+  :root {
+    --brand-color: #e31837;
+    --text-color: #1a1a1a;
+    --muted: #666;
+    --border: #e0e0e0;
+    --bg-soft: #f7f7f7;
+    --max-width: 800px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  img {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    background: var(--bg-soft);
+  }
+  .page-wrap {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+  /* Proporções exatas das imagens originais */
+  .img-cover { aspect-ratio: 3 / 4; border-radius: 4px; }
+  .img-interview { aspect-ratio: 4 / 3; border-radius: 4px; }
+  .img-testimonial { aspect-ratio: 3 / 2; }
+  .img-cta { aspect-ratio: 16 / 9; border-radius: 8px; }
+
+  /* ---------- MASTHEAD / NAV ---------- */
+  .masthead {
+    background: var(--brand-color);
+    color: #fff;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    gap: 20px;
+  }
+  .masthead .left-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .masthead .logo {
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .masthead .pill-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .masthead .pill-actions a {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .masthead .pill-actions a.pill--solid {
+    background: #fff;
+    color: var(--brand-color);
+  }
+  .masthead .pill-actions a.pill--outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  .masthead .right-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .masthead .right-links a {
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .subnav {
+    display: flex;
+    gap: 24px;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+  .subnav a { color: var(--text-color); text-decoration: none; white-space: nowrap; }
+
+  /* ---------- ARTICLE WRAPPER ---------- */
+  .article {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  h1.headline {
+    font-size: 34px;
+    line-height: 1.25;
+    margin: 0 0 30px;
+    font-weight: 800;
+  }
+
+  /* ---------- HERO / "COVER" BLOCK ---------- */
+  .hero-cover {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .badge {
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+  }
+  .badge--seal {
+    top: 10%;
+    left: 5%;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #ffd400;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 12px;
+    transform: rotate(-8deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  .badge--ribbon {
+    top: 0;
+    left: 0;
+    background: #e31837;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .badge--callout {
+    top: 5%;
+    right: 3%;
+    width: 160px;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 10px;
+    font-size: 11px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .badge--callout strong { display: block; font-size: 13px; color: var(--brand-color); }
+
+  /* ---------- ARTICLE BODY ---------- */
+  .article p { font-size: 19px; margin: 0 0 22px; }
+  .article p.lede { font-weight: bold; }
+  .byline { font-family: Arial, sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ---------- PULL QUOTE / STAT CALLOUT ---------- */
+  .pull-quote {
+    border-left: 4px solid var(--brand-color);
+    padding: 4px 0 4px 20px;
+    font-size: 22px;
+    font-style: italic;
+    margin: 30px 0;
+    color: #222;
+  }
+  .stat-callout {
+    background: var(--bg-soft);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    margin: 30px 0;
+    font-family: Arial, sans-serif;
+  }
+  .stat-callout .number {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--brand-color);
+    display: block;
+  }
+
+  /* ---------- EXPERT / INTERVIEW BLOCK ---------- */
+  .interview-figure { margin: 30px 0 10px; }
+  .interview-figure figcaption {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .qa-block { margin-bottom: 22px; }
+  .qa-block .q { font-weight: bold; }
+  .qa-block .a-label { color: var(--brand-color); font-weight: bold; }
+
+  /* ---------- TESTIMONIAL CARDS ---------- */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+    font-family: Arial, sans-serif;
+  }
+  .testimonial-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .testimonial-card .body { padding: 14px; }
+  .testimonial-card .name { color: var(--brand-color); font-weight: bold; margin-bottom: 6px; font-size: 16px; }
+  .testimonial-card .quote { font-size: 14px; font-style: italic; color: #4b5563; }
+
+  /* ---------- URGÊNCIA / ATENÇÃO ---------- */
+  .attention-box {
+    background: #fff4f4;
+    border: 2px solid var(--brand-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+  }
+  .attention-box .label {
+    color: var(--brand-color);
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .attention-box p { font-size: 17px; margin-bottom: 12px; }
+  .attention-box p:last-child { margin-bottom: 0; }
+
+  /* ---------- CTA SECTION ---------- */
+  .cta-section {
+    text-align: center;
+    margin: 50px 0;
+  }
+  .img-cta {
+    margin-bottom: 20px;
+  }
+  .cta-button {
+    display: inline-block;
+    background: var(--brand-color);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 18px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+    text-transform: uppercase;
+  }
+  .cta-button:hover {
+    background: #c0132e;
+  }
+  .cta-sub {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq { margin: 40px 0; font-family: Arial, sans-serif; }
+  .faq h2 { color: var(--brand-color); font-size: 24px; margin-bottom: 20px; font-weight: 800; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 16px 0; }
+  .faq-item .question { font-weight: bold; font-size: 16px; margin: 0 0 8px; color: #111; }
+  .faq-item .answer { font-size: 15px; color: #333; margin: 0; line-height: 1.5; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 4px solid var(--brand-color);
+    margin-top: 60px;
+    padding: 40px 24px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    background: #1f2937;
+  }
+  .footer-inner { max-width: 1100px; margin: 0 auto; color: #9ca3af; }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .footer-cols h4 { font-size: 12px; text-transform: uppercase; margin-bottom: 10px; color: #fff; }
+  .footer-cols a { display: block; color: #9ca3af; text-decoration: none; margin-bottom: 6px; }
+  .footer-disclaimer { border-top: 1px solid #374151; padding-top: 16px; font-size: 12px; line-height: 1.5; }
+
+  /* ================= RESPONSIVO ================= */
+  @media (max-width: 700px) {
+    .masthead {
+      flex-wrap: wrap;
+      padding: 12px 16px;
+    }
+    .masthead .left-group {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .masthead .logo { font-size: 18px; }
+    .masthead .pill-actions a { padding: 7px 14px; font-size: 12px; }
+    .masthead .right-links {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 14px;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+    .subnav {
+      padding: 10px 16px;
+      gap: 16px;
+      font-size: 13px;
+    }
+    .article { padding: 24px 16px; }
+    h1.headline { font-size: 24px; margin-bottom: 20px; }
+    .article p { font-size: 17px; }
+    .pull-quote { font-size: 18px; }
+    .badge--seal {
+      width: 90px;
+      height: 90px;
+      font-size: 10px;
+      top: 6%;
+      left: 4%;
+    }
+    .badge--callout {
+      width: 120px;
+      font-size: 10px;
+      padding: 8px;
+    }
+    .badge--ribbon { font-size: 10px; padding: 5px 10px; }
+    .stat-callout .number { font-size: 32px; }
+    .cta-button { width: 100%; font-size: 17px; padding: 16px 20px; text-align: center; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ================= MASTHEAD ================= -->
+  <header class="masthead">
+    <div class="left-group">
+      <div class="logo">AARP</div>
+      <div class="pill-actions">
+        <a href="https://daiilywellnesscare.site/vsl/" class="pill--solid">Join</a>
+        <a href="https://daiilywellnesscare.site/vsl/" class="pill--outline">Renew</a>
+      </div>
+    </div>
+    <div class="right-links">
+      <a href="https://daiilywellnesscare.site/vsl/">Health</a>
+      <a href="https://daiilywellnesscare.site/vsl/">Money</a>
+      <a href="https://daiilywellnesscare.site/vsl/">Work & Jobs</a>
+      <a href="https://daiilywellnesscare.site/vsl/">Advocacy</a>
+      <a href="https://daiilywellnesscare.site/vsl/">★ Member Benefits</a>
+    </div>
+  </header>
+  <nav class="subnav">
+    <a href="https://daiilywellnesscare.site/vsl/">Health</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Money</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Work & Jobs</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Advocacy</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Social Security</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Medicare</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Caregiving</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Games</a>
+    <a href="https://daiilywellnesscare.site/vsl/">Travel</a>
+    <a href="https://daiilywellnesscare.site/vsl/">More...</a>
+  </nav>
+
+  <main class="article">
+
+    <h1 style="font-family: Georgia, serif; font-size: 28px; line-height: 1.25; font-weight: bold; color: #111111; margin: 15px 0; word-break: break-word;">
+    The $500,000 Alzheimer's Lie: Why Big Pharma Buried Dr. Ohsumi's Japanese Discovery for 30 Years — Until Clint Eastwood, 95, Used It to Reverse His Own Dementia
+</h1>
+
+    <!-- ================= HERO / CAPA ================= -->
+    <div class="hero-cover">
+     <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image1.png" alt="AARP Magazine Cover featuring Clint Eastwood" class="img-cover"></a>
+    </div>
+
+    <!-- ================= ABERTURA DO ARTIGO ================= -->
+    <p>I have spent more than two decades covering aging stories for this magazine. Memory clinics. Dementia trials. The slow, quiet way Alzheimer's takes a person away from the people who love them. I thought I had seen every angle of this disease. I had not.</p>
+    
+    <p>Nothing in my twenty years here prepared me for the conversation I had last month with <strong>Scott Eastwood</strong>.</p>
+
+    <p>"I was so angry," Scott told me, voice cracking on the other end of the line. "We watched my father fade away for years. We tried every doctor, every medication, every clinic: Aricept. Namenda. Exelon. Nothing held. And the whole time — the whole time — the answer was sitting in a kitchen cabinet on the other side of the world. They never told us. Nobody told us."</p>
+
+    <p>So if you are watching the small lapses start to add up — the names that don't come anymore, the keys you can't find, the look in your daughter's eyes when you ask the same question for the third time — I need you to read every line of this story carefully.</p>
+
+    <p><span style="color: #e31837; font-weight: bold;">You are NOT alone. And it is NOT your fault.</span></p>
+
+    <p>After Scott's story went public, the man who reached out to AARP was not a doctor and was not a celebrity. It was <strong>Bill Gates</strong>.</p>
+
+    <!-- ================= DESTAQUE / ESTATÍSTICA ================= -->
+    <div class="">
+    <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image2.png" alt="AARP Magazine Cover featuring Clint Eastwood" ></a>
+    </div>
+
+   <p>Gates lost his own father to Alzheimer's in 2020. In the years since, he has quietly redirected <strong>more than $10 billion</strong> through the Gates Foundation toward a single project — finding what mainstream American medicine had missed.</p>
+
+    <p>What he found was a 100-year-old doctor most American physicians have never heard of: <strong>Dr. Yoshinori Ohsumi</strong>, trained at the University of Tokyo. Once a celebrated researcher in the United States. Then, in a single year, his name was scrubbed from journals. His grants frozen. His license to practice in this country revoked. Banned. Forced back to Japan, where he disappeared into a small village on the southern coast of <strong>Okinawa</strong>.</p>
+
+    <p>It took Bill Gates' team <strong>seven weeks</strong> to find him.</p>
+
+    <p>What Dr. Ohsumi confirmed to us on camera — what the 2025 Nobel Committee confirmed when it awarded him the Nobel Prize in Medicine just weeks later — is the reason the pharmaceutical industry buried his work for three decades.</p>
+
+    <!-- ================= BLOCO DE ENTREVISTA / ESPECIALISTA ================= -->
+    <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image3.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+   <div class="quote-box">
+        "A single American diagnosed with Alzheimer's generates roughly $500,000 in pharmaceutical revenue over the course of the disease. A cured patient generates zero. That is the equation that decided what the world was allowed to know."
+    </div>
+
+    <p>AARP sent <strong>Maria Shriver</strong> — the NBC News special correspondent who lost her own father, Sargent Shriver, to Alzheimer's in 2011, and who has spent the last two decades as one of America's most outspoken voices on this disease — to Dr. Ohsumi's clinic in Okinawa. The full interview is published below. I am publishing it in full because — frankly — I do not know how much longer it will be allowed to stay online.</p>
+    <figure class="interview-figure">
+     <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image4.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Maria Shriver:</span> Dr. Ohsumi, for decades Americans have been told that Alzheimer's is genetics. It is aging. It is amyloid plaque. You say all of that is wrong. What is actually happening inside the brain?</p>
+    
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image3.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Dr. Ohsumi:</span> Amyloid plaque is not the cause. It is the <strong>scar</strong>. It is what is left behind after a piece of your brain has already been destroyed and the memory inside it is already gone. For thirty years the entire pharmaceutical industry has been chasing the scar instead of the wound. The real cause is a <strong>parasite</strong>. Its scientific name is <em>Toxoplasma gondii</em>. We call it the <strong>brain parasite</strong>. It enters through the food and water supply. Once inside the brain, it burrows directly into your neurons and feeds on them from within. Your brain slowly loses mass. We call this process <strong>Brain Rot</strong>. As the neurons are consumed, your <strong>acetylcholine</strong> — the chemical your brain uses to retrieve memory — collapses. First the small memories vanish. A name. Where you left your keys. The word you knew a second ago. Then the bigger ones. Faces. Conversations from yesterday. Entire chapters of your own life. That is Alzheimer's. That is dementia. It is not aging. It is consumption.</p>
+    
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/">  <img src="image/image4.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Maria Shriver:</span> If the parasite has always been in the food supply, why did dementia explode only after 1970?</p>
+
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/">  <img src="image/image3.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Dr. Ohsumi:</span> Between 1970 and 1990, Alzheimer's and dementia cases in the United States rose <strong>approximately 600 percent</strong>. Genetics does not move that fast. Aging does not move that fast. What changed was the American immune system. Aggressive antibiotic prescribing. A 3,000 percent increase in pesticide load on American crops. Expanding immunization schedules. Layer upon layer, decade after decade, you discouraged your own immune system from acting independently. A healthy immune system identifies the brain parasite and eliminates it before it ever reaches the brain. By 1980, an entire generation of Americans no longer had that defense. The parasite finally had a clear path.</p>
+
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image4.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Maria Shriver:</span> Help our readers picture what is actually happening inside the brain when memory starts to fail.</p>
+
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image3.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Dr. Ohsumi:</span> Think of your brain as a vast library. Every book on every shelf is a neuron holding a memory. Your wife's face. Your wedding day. The names of your grandchildren. The street you grew up on. Acetylcholine is the librarian — she walks the aisles, pulls the right book, brings the memory back to you. The brain parasite is the <strong>infestation of insects eating through those books from the inside out</strong>. Silently. Page by page. Until there is nothing left inside the cover. As the books rot, the librarian has less and less to work with. First you forget where you left your keys. Then you forget a word mid-sentence. Then familiar faces start to blur. And finally the library falls completely silent. That is why the brains of dementia patients are <strong>visibly smaller</strong> at autopsy. They were not aging. They were being consumed.</p>
+
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/">  <img src="image/image4.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Maria Shriver:</span> And the drugs American families have been spending their savings on — Aricept, Namenda, Exelon, the new monoclonal antibodies?</p>
+
+    <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image3.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Dr. Ohsumi:</span> They do not kill the parasite. They do not repair the rotted neurons. They do not restore the librarian. They mask symptoms for a few months. <strong>That is the business model</strong>. A patient who is managed slowly is a patient who pays for a decade. A patient who is cured pays nothing. That is why my research was buried for thirty years. I was not banned because I was wrong. I was banned because I was <strong>right</strong>.</p>
+    
+    <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image4.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Maria Shriver:</span> So you returned to Japan. To Okinawa. What did you find there?</p>
+    
+    <figure class="interview-figure">
+     <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image3.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Dr. Ohsumi:</span> Okinawa is a Blue Zone. Nowhere else on Earth has a higher concentration of people over 100 years old with <strong>fully intact memory</strong>. People who can recite names, faces, and full stories from seventy years ago — with a clarity most Americans lose before they turn sixty. I tracked their diet for years. I documented what they ate, when they ate, and how they prepared it. I combined that data with the ancient Japanese healing tradition that the American medical establishment had taught me to forget. What I found, after years of work, was a <strong>10-second morning ritual</strong> built from <strong>four natural compounds</strong> grown only on that island. Taken together at the right moment of the day, in the right order, they do something pharmaceutical science had called impossible. They <strong>kill the brain parasite</strong>. They <strong>regenerate the brain mass</strong> the parasite consumed. They <strong>restart natural acetylcholine production</strong>. And they protect the brain against future infection.</p>
+
+     <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image4.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Maria Shriver:</span> Bill Gates funded a full clinical trial of this ritual. What did the trial find?</p>
+
+     <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/">  <img src="image/image3.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Dr. Ohsumi:</span> The trial was conducted in partnership with the <strong>Alzheimer's Association</strong> and the <strong>National Institute on Aging</strong>. <strong>9,300 participants</strong>. Ages 35 to 85. Mild memory slips to advanced Alzheimer's. After twelve weeks the data was clear. The brain parasite was systematically eliminated from the participants' bodies. Brain tissue began to regenerate with an average recovery of <strong>94 percent of lost cerebral mass</strong>. In <strong>96 percent</strong> of participants, the progression of the disease was completely stopped. <strong>93 percent</strong> regained cognitive function they had lost — driving again, paying their own bills, recognizing every grandchild by name. This was not management. This was not a treatment. It was a <strong>complete reversal</strong> of Alzheimer's disease in human subjects. The Nobel Committee saw the data. That is why they called me back to Stockholm in 2025.</p>
+
+    <figure class="interview-figure">
+     <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image5.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p>What happened in the hours after that Nobel ceremony was something the press release never mentioned. During a media interview the following morning — cameras rolling, journalists in the front row — a man stood up in the back of the room. He was not a journalist. He was not a scientist.</p>
+    <p>"Do you have any idea how many billions in business your little ritual destroys if it is released?" he said. "I am only going to say this once, Doctor. <strong>Be very careful</strong>. You have no idea what you are messing with."</p>
+    <p>Bill Gates told us later that this was the moment he stopped waiting for the pharmaceutical industry to cooperate. He committed his own personal fortune to building, from scratch, the manufacturing infrastructure that would put Dr. Ohsumi's discovery directly into the hands of American families. <strong>No partners. No middlemen. No industry gatekeepers.</strong></p>
+    <p>But the case that broke the entire story open for AARP readers was not a billionaire or a scientist. It was a 95-year-old American film legend who agreed to sit down with us on the condition that his story was told in his own words.</p>
+
+    <figure class="interview-figure">
+     <a href="https://daiilywellnesscare.site/vsl/"> <img src="image/image6.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <p><span style="color: #e31837; font-weight: bold;">Clint Eastwood:</span> "It started with small things. Misplaced keys. Appointments I swore I had never made. Then one afternoon I stopped in the middle of traffic with no idea where I was going. My doctor sat me down a week later and said the word out loud: <strong>dementia</strong>. He told me it was only going to get worse. I was 95 and for the first time in my life I felt completely powerless. My son Scott found Dr. Ohsumi's ritual. <strong>Two weeks later the fog lifted</strong>. The lapses stopped. The confusion cleared. I was driving again. I was on set again, making decisions, directing every detail. At 95, my mind is sharper than it was at 60. I got my freedom back. I got my independence back. I got my life back."</p>
+    <p>Scott Eastwood told AARP that the week his father read a full shooting script and recited the cast list <strong>without looking down at the page</strong>, he walked out of the room and cried. "I got my dad back," Scott said. "I never thought I would say that sentence again."</p>
+    <p style="text-align: center; margin: 30px 0;"><a href="https://daiilywellnesscare.site/vsl/" style="color: #004b87; font-weight: bold; text-decoration: underline; font-size: 18px;">WATCH DR. OHSUMI EXPLAIN THE 4-INGREDIENT OKINAWA RITUAL — 5-MINUTE VIDEO</a></p>
+
+    <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image7.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="https://daiilywellnesscare.site/vsl/" style="display: block; background-color: #cc0000; color: #ffffff; font-weight: bold; text-decoration: none; padding: 15px 30px; font-size: 22px; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; text-transform: uppercase;">CLICK TO WATCH</a>
+        <a href="https://daiilywellnesscare.site/vsl/" style="color: #0000ee; font-weight: bold; text-decoration: underline; font-size: 18px; text-transform: uppercase;">WATCH THE 5-MINUTE VIDEO TO MELT FAT FOR GOOD</a>
+    </div>
+
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/">  <img src="image/image7.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="https://daiilywellnesscare.site/vsl/" style="display: block; background-color: #cc0000; color: #ffffff; font-weight: bold; text-decoration: none; padding: 15px 30px; font-size: 22px; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; text-transform: uppercase;">CLICK TO WATCH</a>
+        
+    </div>
+
+    <h2 style="color: #e31837; text-align: center; font-size: 24px; font-weight: bold; margin: 40px 0 20px 0;">Other Hollywood Legends Who Reversed Their Memory Loss With Dr. Ohsumi's Okinawa Ritual</h2>
+
+    <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image8.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <h3 style="color: #e31837; text-align: center; font-size: 20px; font-weight: bold; margin: 30px 0 10px 0;">Anthony Hopkins, 86</h3>
+    <p style="text-align: center;">"When I began studying the script for <em>The Father</em>, the lines simply would not stick. I was forgetting names, conversations, basic things. My doctors offered medications. None of them touched what was really happening. I was terrified — not of losing the role, but of losing <strong><em>myself</em></strong>. Then I found Dr. Ohsumi's ritual. Within weeks the fog lifted. I memorized every line, every silence in that script. I delivered the performance of my career with a mind I was no longer sure I had. Today, at 86, my mind is sharper than it has any right to be."</p>
+
+    <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image9.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <h3 style="color: #e31837; text-align: center; font-size: 20px; font-weight: bold; margin: 30px 0 10px 0;">Morgan Freeman, 87</h3>
+    <p style="text-align: center;">"I was turning down roles because the fog was constant. I did not trust my own mind anymore. I would read a page and have no memory of it ten minutes later. The thought of standing on a set and forgetting my lines in front of a crew of two hundred people terrified me. Within weeks of starting Dr. Ohsumi's ritual, everything changed. The names came back. The lines stuck. I called my agent the very next day. This simple ritual practically saved my career — and far more importantly than that, it gave me back the man my grandchildren recognize."</p>
+
+    <figure class="interview-figure">
+      <a href="https://daiilywellnesscare.site/vsl/"><img src="image/image10.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <h3 style="color: #e31837; text-align: center; font-size: 20px; font-weight: bold; margin: 30px 0 10px 0;">Robert De Niro, 80</h3>
+    <p style="text-align: center;">"There was a point where I was seriously considering stepping away from acting. The memory lapses were becoming impossible to hide on set. I would look at my daughter and feel that small panic — the moment her name took a second too long to come back. That was the moment I knew I had to do something. Dr. Ohsumi's ritual gave me my confidence back. I am 80 years old and I have no intention of stopping. My mind is mine again."</p>
+    
+    <p style="color: #e31837; font-weight: bold; margin-top: 30px;">Attention: The longer you wait, the more your brain rots.</p>
+    <p>According to the clinical data Dr. Ohsumi presented to the Nobel Committee, <strong>every additional week of delay can reduce your chances of full memory recovery by up to 8 percent</strong>. The brain parasite continues to feed even now — at this exact moment, as you are reading this — and each neuron it consumes is one less memory your mind will be able to recover.</p>
+    <p>Bill Gates has also confirmed to AARP that pharmaceutical industry attorneys have begun filing formal complaints to have this interview removed from the AARP archive within the coming weeks. We do not know how much longer this video will be allowed to remain online.</p>
+    <p>Watch the full 5-minute video below. In it, Dr. Ohsumi shows the exact <strong>4 Okinawa ingredients</strong>, the <strong>precise order</strong> in which they must be combined, the <strong>10-second morning protocol</strong>, and the <strong>single mistake</strong> most people make that destroys the result before it can even begin.</p>
+    
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="https://daiilywellnesscare.site/vsl/" style="color: #0000ee; font-weight: bold; text-decoration: underline; font-size: 18px; text-transform: uppercase;">WATCH DR. OHSUMI'S FULL 5-MINUTE VIDEO BEFORE IT IS REMOVED</a>
+    </div>
+
+    <figure class="interview-figure">
+    <a href="https://daiilywellnesscare.site/vsl/">  <img src="image/image7.png" alt="Dr. Yoshinori Ohsumi and Maria Shriver interview" class="img-interview"></a>
+      <figcaption></figcaption>
+    </figure>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="https://daiilywellnesscare.site/vsl/" style="display: block; background-color: #cc0000; color: #ffffff; font-weight: bold; text-decoration: none; padding: 15px 30px; font-size: 22px; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; text-transform: uppercase;">CLICK TO WATCH</a>
+        <a href="https://daiilywellnesscare.site/vsl/" style="color: #0000ee; font-weight: bold; text-decoration: underline; font-size: 18px; text-transform: uppercase;">WATCH THE 5-MINUTE VIDEO TO MELT FAT FOR GOOD</a>
+    </div>
+
+    <p>Before we close this story, I want to leave you with the request Bill Gates asked AARP to pass on to every reader: <em>"Please share this with the families you love. Every father, every mother, every grandparent who is still living with this disease without knowing there is now a way back. We have the power to make sure no American family has to watch what mine had to watch ever again."</em></p>
+
+
+
+  </main>
+
+  <footer style="width: 100%; border-top: 4px solid #e31837; padding: 40px 0 20px 0; font-family: Arial, sans-serif; color: #333333; background-color: #ffffff; box-sizing: border-box; margin: 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0; padding-bottom: 25px; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+                <div style="font-size: 32px; font-weight: bold; color: #e31837; letter-spacing: -1px;">
+                    AARP<span style="font-size: 14px; vertical-align: super;">®</span>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="https://daiilywellnesscare.site/vsl/" style="width: 36px; height: 36px; background-color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; overflow: hidden;"><img src="image/1.png" alt="Facebook" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="width: 36px; height: 36px; background-color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; overflow: hidden;"><img src="image/2.png" alt="Twitter/X" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="width: 36px; height: 36px; background-color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; overflow: hidden;"><img src="image/3.png" alt="YouTube" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="width: 36px; height: 36px; background-color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; overflow: hidden;"><img src="image/4.png" alt="Instagram" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="width: 36px; height: 36px; background-color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; overflow: hidden;"><img src="image/5.png" alt="Pinterest" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="width: 36px; height: 36px; background-color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; overflow: hidden;"><img src="image/6.png" alt="LinkedIn" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                </div>
+            </div>
+
+            <style>
+                @media (max-width: 768px) {
+                    .footer-grid-responsive {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 20px !important;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .footer-grid-responsive {
+                        grid-template-columns: 1fr !important;
+                        gap: 20px !important;
+                    }
+                }
+            </style>
+
+            <div class="footer-grid-responsive" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 40px;">
+                <div>
+                    <h4 style="font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; color: #000000;">MEMBERSHIP</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2.2;">
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Join AARP</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Renew Membership</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Member Benefits</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Print Your Card</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Update Your Info</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; color: #000000;">ABOUT AARP</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2.2;">
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Press Center</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">AARP Foundation</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">AARP Rewards</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Contact Us</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Careers at AARP</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; color: #000000;">HELP</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2.2;">
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Membership Help</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">FAQs</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Sitemap</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">AARP en español</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; color: #000000;">MEMBERS EDITION</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2.2;">
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">AARP The Magazine</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">AARP Bulletin</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Sign Up for Newsletters</a></li>
+                        <li><a href="https://daiilywellnesscare.site/vsl/" style="color: #333333; text-decoration: none;">Advertise with AARP</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #e0e0e0; padding-top: 20px; margin-bottom: 20px; font-size: 12px; color: #666666; line-height: 1.5;">
+                AARP is a nonprofit, nonpartisan organization that empowers people to choose how they live as they age. AARP has staff and volunteers serving every U.S. state, the District of Columbia, Puerto Rico and the U.S. Virgin Islands.
+            </div>
+
+            <div style="border-top: 1px solid #e0e0e0; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #666666; flex-wrap: wrap; gap: 10px;">
+                <div>&copy; 2026 AARP. All rights reserved.</div>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="https://daiilywellnesscare.site/vsl/" style="color: #666666; text-decoration: none;">Privacy Policy</a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="color: #666666; text-decoration: none;">Terms of Service</a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="color: #666666; text-decoration: none;">Accessibility Statement</a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="color: #666666; text-decoration: none;">Advertise with AARP</a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="color: #666666; text-decoration: none;">Ad Choices</a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="color: #666666; text-decoration: none;">Cookies</a>
+                    <a href="https://daiilywellnesscare.site/vsl/" style="color: #666666; text-decoration: none;">Your Privacy Choices</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
