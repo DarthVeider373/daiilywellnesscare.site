@@ -3257,6 +3257,8 @@ ul.strip3-list li:last-child::after {
 @media(max-width: 991px) {
     .free-shipping-section img {
         max-width: 100px;
+        display: block;
+        margin: 0 auto;
     }
 }
 
@@ -4352,9 +4354,7 @@ body {
 					<!-- <img src="./assets/images/846b5d26-06cb-4dee-a64d-f0c2af60a1ec-news-logos-dV9PlPr" style="margin: 0 auto;" class="img_adv"> -->
 				</div>
 			</div>
-			<br>
-		
-
+<br>
 
 			<main id="container">
 
@@ -4421,6 +4421,12 @@ body {
                                     transform: scale(1.03);
                                   }
 
+                                  @media (max-width: 767px) {
+                                    .pricing-card:nth-child(1) { order: 3; } /* Try Two - 2 bottles */
+                                    .pricing-card:nth-child(2) { order: 1; } /* Best Value - 6 bottles */
+                                    .pricing-card:nth-child(3) { order: 2; } /* Most Popular - 3 bottles */
+                                  }
+
                                   .pricing-card h3 {
                                     color: #0f186e;
                                     font-size: 26px;
@@ -4451,7 +4457,7 @@ body {
                                     line-height: 1;
                                     display: flex;
                                     justify-content: center;
-                                    align-items: baseline;
+                                    align-items: center;
                                     gap: 8px;
                                     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
                                   }
@@ -4475,7 +4481,7 @@ body {
 
                                   .pricing-card .bonus-badge {
                                     display: block;
-                                    background: #8f93bd;
+                                    background: #0f186e;
                                     color: #fff;
                                     font-weight: 700;
                                     font-size: 13px;
