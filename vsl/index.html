@@ -12,6 +12,7 @@
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 	<!-- END Google Fonts -->
 
 	<!-- Custom CSS -->
@@ -2985,17 +2986,48 @@ ul.strip3-list li:last-child::after {
     max-width: 200px;
 }
 
+#guarantee .col-md-3 figure {
+    display: block;
+    text-align: center;
+}
+
+#guarantee .col-md-3 figure img {
+    display: block;
+    margin: 0 auto;
+}
+
+#guarantee .badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
 #guarantee .badges img {
     background-color: white;
+    width: 100px;
     max-width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 3px solid white;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+    object-fit: contain;
 }
 
 @media (max-width: 599px) {
     #guarantee .badges img {
-        max-width: 70px;
+        width: 56px;
+        max-width: 56px;
+        height: 56px;
+    }
+}
+
+@media (max-width: 380px) {
+    #guarantee .badges img {
+        width: 46px;
+        max-width: 46px;
+        height: 46px;
     }
 }
 
@@ -4320,7 +4352,7 @@ body {
 					<!-- <img src="./assets/images/846b5d26-06cb-4dee-a64d-f0c2af60a1ec-news-logos-dV9PlPr" style="margin: 0 auto;" class="img_adv"> -->
 				</div>
 			</div>
-<br>
+
 
 			<main id="container">
 
@@ -4342,13 +4374,13 @@ body {
                                     <div class="container text-center">
                                         <h2 class="title-claim mb-0 text-white">Choose Your Discounted FocusMax
                                             Package
-                                            With Our Special Time-Limited Offer!</h2>
+                                            With Our <span style="color:#f7cf1e;">Special Time-Limited Offer!</span></h2>
                                         <div class="strip3 flt">
                                             <div class="container bdinpad">
                                                 <ul class="strip3-list">
                                                     <li>
                                                         <img src="./assets/images/831b37e7-7695-43b0-b59f-f9cc54505dc5-hour-glass-R1lGGK2" alt="" class="hourglass">
-                                                        <strong>FocusMax Bottles Remaining:</strong> <span class="countdown">218</span>
+                                                        <strong style="color:#f7cf1e;">FocusMax Bottles Remaining:</strong> <span class="countdown" style="color:#ff3b3b;">218</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -4359,374 +4391,216 @@ body {
 
                                 <!-- Products -->
                                 <style>
-                                  /* ===== PRICING CARDS ===== */
-.pricing {
-    background: #ffffff;
-    padding: 40px 16px 56px;
-}
+                                  /* ===== PRICING CARDS (novo layout) ===== */
+                                  .pricing-section {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: stretch;
+                                    gap: 24px;
+                                    flex-wrap: wrap;
+                                    padding: 40px 20px;
+                                    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                                  }
 
-.pricing a {
-    text-decoration: none;
-}
+                                  .pricing-card {
+                                    background: #fff;
+                                    border: 1px solid #e2e2e2;
+                                    border-radius: 16px;
+                                    padding: 30px 24px;
+                                    width: 320px;
+                                    text-align: center;
+                                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                                    position: relative;
+                                  }
 
-.pricing-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-}
+                                  .pricing-card.featured {
+                                    background: #eaebfa;
+                                    border: 2px solid #1a258f;
+                                    transform: scale(1.03);
+                                  }
 
-.pricing-card {
-    background: #0f1230;
-    border: 1px solid #2d3372;
-    border-radius: 6px;
-    text-align: center;
-    padding-bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+                                  .pricing-card h3 {
+                                    color: #0f186e;
+                                    font-size: 26px;
+                                    margin: 0 0 4px;
+                                    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                                    font-weight: 700;
+                                  }
 
-.pricing-card.highlight {
-    border: 2px solid #3f48a0;
-    box-shadow: 0 0 30px #3f48a0;
-}
+                                  .pricing-card .supply {
+                                    color: #444;
+                                    font-size: 15px;
+                                    margin-bottom: 20px;
+                                    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                                    font-weight: 400;
+                                  }
 
-.card-header {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #b8bce8;
-    background: #1b1f4b;
-    margin-bottom: 20px;
-}
+                                  .pricing-card .product-image {
+                                    height: 180px;
+                                    max-width: 100%;
+                                    object-fit: contain;
+                                    margin-bottom: 20px;
+                                  }
 
-.highlight .card-header {
-    background: linear-gradient(to right, #3f48a0, #222b80);
-    color: #ffffff;
-    font-weight: 800;
-}
+                                  .pricing-card .price {
+                                    font-size: 54px;
+                                    font-weight: 700;
+                                    color: #111;
+                                    line-height: 1;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: baseline;
+                                    gap: 8px;
+                                    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                                  }
 
-.card-title {
-    font-size: 28px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #ffffff;
-}
+                                  .pricing-card .price small {
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                    color: #333;
+                                    text-align: left;
+                                    line-height: 1.1;
+                                    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                                  }
 
-.highlight .card-title {
-    font-size: 36px;
-    color: #a8b0ff;
-}
+                                  .pricing-card .savings {
+                                    font-weight: 700;
+                                    font-size: 15px;
+                                    color: #111;
+                                    margin: 12px 0;
+                                    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                                  }
 
-.card-supply {
-    font-size: 13px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #7c82be;
-    margin-bottom: 16px;
-}
+                                  .pricing-card .bonus-badge {
+                                    display: block;
+                                    background: #8f93bd;
+                                    color: #fff;
+                                    font-weight: 700;
+                                    font-size: 13px;
+                                    padding: 8px 12px;
+                                    border-radius: 6px;
+                                    margin-bottom: 16px;
+                                    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                                  }
 
-.highlight .card-supply {
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-}
+                                  .pricing-card.featured .bonus-badge {
+                                    background: #0f186e;
+                                  }
 
-.card-product-img {
-    color: #556;
-    margin-bottom: 20px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+                                  .cta-button {
+                                    display: block;
+                                    width: 100%;
+                                    background: #f7cf1e;
+                                    color: #111;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    letter-spacing: 0.5px;
+                                    padding: 16px 0;
+                                    border: none;
+                                    border-radius: 8px;
+                                    cursor: pointer;
+                                    margin-bottom: 16px;
+                                    box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+                                    text-decoration: none;
+                                    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                                  }
 
-.card-product-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
+                                  .cta-button:hover {
+                                    background: #f2c40a;
+                                  }
 
-/* Tamanho do pote - 2 Bottles (Basic) */
-.card-product-img-2b {
-    width: 220px;
-    height: 220px;
-}
+                                  .guarantee {
+                                    font-size: 13px;
+                                    color: #333;
+                                    margin-bottom: 10px;
+                                    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                                    font-weight: 400;
+                                  }
 
-/* Tamanho do pote - 3 Bottles (Good Value) */
-.card-product-img-3b {
-    width: 245px;
-    height: 245px;
-}
+                                  .payment-icons {
+                                    display: flex;
+                                    justify-content: center;
+                                    margin-bottom: 16px;
+                                  }
 
-/* Tamanho do pote - 6 Bottles (Best Value) */
-.highlight .card-product-img {
-    width: 220px;
-    height: 200px;
-}
+                                  .payment-icons img {
+                                    height: 24px;
+                                    width: auto;
+                                  }
 
-/* Prices */
-.card-prices {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 4px;
-}
+                                  .total-line {
+                                    font-size: 14px;
+                                    color: #333;
+                                    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                                    font-weight: 400;
+                                  }
 
-.old-price {
-    font-size: 18px;
-    font-weight: 700;
-    color: #cc3333;
-    text-decoration: line-through;
-}
+                                  .total-line del {
+                                    color: #999;
+                                    margin-right: 4px;
+                                  }
 
-.highlight .old-price {
-    font-size: 20px;
-}
+                                  .total-line strong {
+                                    color: #111;
+                                  }
 
-.new-price {
-    font-size: 42px;
-    font-weight: 900;
-    color: #d4d8ff;
-}
-
-.highlight .new-price {
-    font-size: 52px;
-}
-
-.card-shipping {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #7c82be;
-    margin-bottom: 12px;
-}
-
-.highlight .card-shipping {
-    font-size: 13px;
-    font-weight: 800;
-    color: #ffffff;
-}
-
-/* Benefits */
-.card-benefits {
-    list-style: none;
-    margin-bottom: 20px;
-}
-
-.card-benefits li {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-    padding: 3px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.card-benefits li .check {
-    color: #7c82be;
-}
-
-.card-benefits li.green,
-.card-benefits li.green .check {
-    color: #22bb55;
-}
-
-.card-extra {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.card-extra.cyan {
-    color: #7d86e0;
-    margin-bottom: 4px;
-}
-
-.card-extra.gold {
-    color: #d4d8ff;
-    margin-bottom: 16px;
-}
-
-.btn-buy {
-    display: block;
-    width: 85%;
-    padding: 12px 0;
-    font-size: 16px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-align: center;
-}
-
-.btn-buy-gray {
-    background: #c8ccd4;
-    color: #1a1a1a;
-}
-
-.btn-buy-gray:hover {
-    background: #b0b4bc;
-}
-
-.btn-buy-green {
-    background: #22bb55;
-    color: #fff;
-    padding: 16px 0;
-    font-size: 18px;
-}
-
-.btn-buy-green:hover {
-    background: #1da34a;
-}
-
-.card-totals {
-    margin-top: 16px;
-    font-size: 11px;
-    color: #7c82be;
-    line-height: 1.6;
-}
-
-.card-totals .white {
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.card-totals .red {
-    color: #cc3333;
-    font-weight: 700;
-}
-
-.card-bottom-green {
-    color: #22bb55;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 11px;
-}
-
-.card-bottom-cyan {
-    color: #7d86e0;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 11px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (min-width: 768px) {
-    .pricing-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: end;
-    }
-}
-
-@media (max-width: 767px) {
-    .pricing-grid {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .pricing-card:nth-child(1) { order: 3; }
-    .pricing-card:nth-child(2) { order: 1; }
-    .pricing-card:nth-child(3) { order: 2; }
-}
+                                  .shipping {
+                                    font-weight: 500;
+                                    font-size: 13px;
+                                    color: #111;
+                                    margin-top: 4px;
+                                    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                                  }
                                 </style>
-                                <section class="pricing esconder">
-                                  <div class="pricing-grid">
+                                <section class="esconder">
+                                  <div class="pricing-section">
 
-                                    <!-- Basic -->
-                                    <div class="pricing-card">
-  <div class="card-header">Basic</div>
-  <div class="card-title">2 Bottles</div>
-  <div class="card-supply">60 Day Supply</div>
-  <div class="card-product-img card-product-img-2b">
-    <img src="./assets/images/Mockup 2-Photoroom.png" alt="">
-  </div>
-  <div class="card-prices">
-    <span class="old-price">$198</span>
-    <span class="new-price">$158</span>
-  </div>
-  <div class="card-shipping">+ $9.99 Shipping</div>
-  <ul class="card-benefits">
-    <li class="green"><span class="check">&#10003;</span> You Save $40!</li>
-    <li><span class="check">&#10003;</span> $79 Per Bottle</li>
-    <li><span class="check">&#10003;</span> 90 Days Guarantee</li>
-  </ul>
-  <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc2&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-gray">Buy Now</a>
-  <div class="card-totals">
-    Total: <s>$198</s> <span class="white">$158</span><br>+ $9.99 shipping
-  </div>
-</div>
-
-                                    <!-- Best Value -->
-                                    <div class="pricing-card highlight">
-                                      <div class="card-header">Best Value!</div>
-                                      <div class="card-title elemento-pulante">6 Bottles</div>
-                                      <div class="card-supply">180 Day Supply</div>
-                                      <div class="card-product-img">
-                                        <img src="./assets/images/Mockup 6-Photoroom.png" alt="">
-                                      </div>
-                                      <div class="card-prices">
-                                        <span class="old-price">$588</span>
-                                        <span class="new-price">$294</span>
-                                      </div>
-                                      <div class="card-shipping">Free Shipping</div>
-                                      <ul class="card-benefits">
-                                        <li class="green"><span class="check">&#10003;</span> You Save $294!</li>
-                                        <li class="green"><span class="check">&#10003;</span> 50% Discount</li>
-                                        <li class="green"><span class="check">&#10003;</span> 3 Free Bottles</li>
-                                      </ul>
-                                      <div class="card-extra cyan">180 Day Guarantee</div>
-                                      <div class="card-extra gold elemento-pulante">+SURPRISE</div>
-                                      <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc6&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-green">Buy Now</a>
-                                      <div style="margin-top:16px;">
-                                        <div class="card-bottom-cyan">60 Days Guarantee</div>
-                                        <div class="card-bottom-green">+Free Shipping</div>
-                                      </div>
+                                  <div class="pricing-card">
+                                    <h3>Try Two</h3>
+                                    <div class="supply">60 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 2-Photoroom.png" alt="Try Two - 2 Bottles">
+                                    <div class="price">$79 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $40</div>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc2&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">90 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
                                     </div>
+                                    <div class="total-line">TOTAL: <del>$198</del> <strong>$158</strong></div>
+                                    <div class="shipping">+ $9.99 SHIPPING</div>
+                                  </div>
 
-                                    <!-- Good Value -->
-                                    <div class="pricing-card">
-                                      <div class="card-header">Good Value</div>
-                                      <div class="card-title">3 Bottles</div>
-                                      <div class="card-supply">90 Day Supply</div>
-                                      <div class="card-product-img card-product-img-3b">
-                                        <img src="./assets/images/Mockup 3-Photoroom.png" alt="">
-                                      </div>
-                                      <div class="card-prices">
-                                        <span class="old-price">$294</span>
-                                        <span class="new-price">$177</span>
-                                      </div>
-                                      <div class="card-shipping" style="color:#fff; font-weight:800;">Free Shipping</div>
-                                      <ul class="card-benefits">
-                                        <li class="green"><span class="check">&#10003;</span> You Save $98!</li>
-                                        <li><span class="check">&#10003;</span> 1 Free Bottle</li>
-                                        <li><span class="check">&#10003;</span> 40% Discount</li>
-                                        <li><span class="check">&#10003;</span> 60 Days Guarantee</li>
-                                      </ul>
-                                      <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc3&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-gray">Buy Now</a>
-                                      <div class="card-totals">
-                                        Total: <s>$294</s> <span class="white">$177</span><br>+<span class="red">FREE</span> Shipping
-                                      </div>
+                                  <div class="pricing-card featured">
+                                    <h3>Best Value</h3>
+                                    <div class="supply">180 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 6-Photoroom.png" alt="Best Value - 6 Bottles">
+                                    <div class="price">$49 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $294</div>
+                                    <span class="bonus-badge">+SURPRISE</span>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc6&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">180 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
                                     </div>
+                                    <div class="total-line">TOTAL: <del>$588</del> <strong>$294</strong></div>
+                                    <div class="shipping">+ FREE US SHIPPING</div>
+                                  </div>
+
+                                  <div class="pricing-card">
+                                    <h3>Most Popular</h3>
+                                    <div class="supply">90 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 3-Photoroom.png" alt="Most Popular - 3 Bottles">
+                                    <div class="price">$59 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $98</div>
+                                    <span class="bonus-badge">+SURPRISE</span>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc3&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">60 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
+                                    </div>
+                                    <div class="total-line">TOTAL: <del>$294</del> <strong>$177</strong></div>
+                                    <div class="shipping">+ FREE US SHIPPING</div>
+                                  </div>
 
                                   </div>
                                 </section>
@@ -4807,6 +4681,17 @@ body {
                                 <!-- Free Shipping -->
 
                                 <!-- Testimonials -->
+                                <style>
+                                    @media (max-width: 767px) {
+                                        #testimonials h2 {
+                                            font-size: 32px !important;
+                                            line-height: 1.25;
+                                        }
+                                        #testimonials h4 {
+                                            font-size: 24px !important;
+                                        }
+                                    }
+                                </style>
                                 <div id="testimonials" class="py-5">
                                     <div class="container" style="max-width: 1000px;">
                                         <h2 class="my-3 mb-0 text-center" style="color: var(--primary-color); font-weight: 700;">What People Are
@@ -5100,13 +4985,13 @@ body {
                                     <div class="container text-center">
                                         <h2 class="title-claim mb-0 text-white">Choose Your Discounted FocusMax
                                             Package
-                                            With Our Special Time-Limited Offer!</h2>
+                                            With Our <span style="color:#f7cf1e;">Special Time-Limited Offer!</span></h2>
                                         <div class="strip3 flt">
                                             <div class="container bdinpad">
                                                 <ul class="strip3-list">
                                                     <li>
                                                         <img src="./assets/images/831b37e7-7695-43b0-b59f-f9cc54505dc5-hour-glass-R1lGGK2" alt="" class="hourglass">
-                                                        <strong>FocusMax Bottles Remaining:</strong> <span class="countdown">218</span>
+                                                        <strong style="color:#f7cf1e;">FocusMax Bottles Remaining:</strong> <span class="countdown" style="color:#ff3b3b;">218</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -5117,84 +5002,55 @@ body {
 
                                 <!-- Products -->
 
-                                <section class="pricing esconder">
-                                  <div class="pricing-grid">
+                                <section class="esconder">
+                                  <div class="pricing-section">
 
-                                    <!-- Basic -->
-                                    <div class="pricing-card">
-  <div class="card-header">Basic</div>
-  <div class="card-title">2 Bottles</div>
-  <div class="card-supply">60 Day Supply</div>
-  <div class="card-product-img card-product-img-2b">
-    <img src="./assets/images/Mockup 2-Photoroom.png" alt="">
-  </div>
-  <div class="card-prices">
-    <span class="old-price">$198</span>
-    <span class="new-price">$158</span>
-  </div>
-  <div class="card-shipping">+ $9.99 Shipping</div>
-  <ul class="card-benefits">
-    <li class="green"><span class="check">&#10003;</span> You Save $40!</li>
-    <li><span class="check">&#10003;</span> $79 Per Bottle</li>
-    <li><span class="check">&#10003;</span> 90 Days Guarantee</li>
-  </ul>
-  <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc2&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-gray">Buy Now</a>
-  <div class="card-totals">
-    Total: <s>$198</s> <span class="white">$158</span><br>+ $9.99 shipping
-  </div>
-</div>
-
-                                    <!-- Best Value -->
-                                    <div class="pricing-card highlight">
-                                      <div class="card-header">Best Value!</div>
-                                      <div class="card-title elemento-pulante">6 Bottles</div>
-                                      <div class="card-supply">180 Day Supply</div>
-                                      <div class="card-product-img">
-                                        <img src="./assets/images/Mockup 6-Photoroom.png" alt="">
-                                      </div>
-                                      <div class="card-prices">
-                                        <span class="old-price">$588</span>
-                                        <span class="new-price">$294</span>
-                                      </div>
-                                      <div class="card-shipping">Free Shipping</div>
-                                      <ul class="card-benefits">
-                                        <li class="green"><span class="check">&#10003;</span> You Save $294!</li>
-                                        <li class="green"><span class="check">&#10003;</span> 50% Discount</li>
-                                        <li class="green"><span class="check">&#10003;</span> 3 Free Bottles</li>
-                                      </ul>
-                                      <div class="card-extra cyan">180 Day Guarantee</div>
-                                      <div class="card-extra gold elemento-pulante">+SURPRISE</div>
-                                      <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc6&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-green">Buy Now</a>
-                                      <div style="margin-top:16px;">
-                                        <div class="card-bottom-cyan">60 Days Guarantee</div>
-                                        <div class="card-bottom-green">+Free Shipping</div>
-                                      </div>
+                                  <div class="pricing-card">
+                                    <h3>Try Two</h3>
+                                    <div class="supply">60 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 2-Photoroom.png" alt="Try Two - 2 Bottles">
+                                    <div class="price">$79 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $40</div>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc2&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">90 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
                                     </div>
+                                    <div class="total-line">TOTAL: <del>$198</del> <strong>$158</strong></div>
+                                    <div class="shipping">+ $9.99 SHIPPING</div>
+                                  </div>
 
-                                    <!-- Good Value -->
-                                    <div class="pricing-card">
-                                      <div class="card-header">Good Value</div>
-                                      <div class="card-title">3 Bottles</div>
-                                      <div class="card-supply">90 Day Supply</div>
-                                      <div class="card-product-img card-product-img-3b">
-                                        <img src="./assets/images/Mockup 3-Photoroom.png" alt="">
-                                      </div>
-                                      <div class="card-prices">
-                                        <span class="old-price">$294</span>
-                                        <span class="new-price">$177</span>
-                                      </div>
-                                      <div class="card-shipping" style="color:#fff; font-weight:800;">Free Shipping</div>
-                                      <ul class="card-benefits">
-                                        <li class="green"><span class="check">&#10003;</span> You Save $98!</li>
-                                        <li><span class="check">&#10003;</span> 1 Free Bottle</li>
-                                        <li><span class="check">&#10003;</span> 40% Discount</li>
-                                        <li><span class="check">&#10003;</span> 60 Days Guarantee</li>
-                                      </ul>
-                                      <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc3&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-gray">Buy Now</a>
-                                      <div class="card-totals">
-                                        Total: <s>$294</s> <span class="white">$177</span><br>+<span class="red">FREE</span> Shipping
-                                      </div>
+                                  <div class="pricing-card featured">
+                                    <h3>Best Value</h3>
+                                    <div class="supply">180 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 6-Photoroom.png" alt="Best Value - 6 Bottles">
+                                    <div class="price">$49 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $294</div>
+                                    <span class="bonus-badge">+SURPRISE</span>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc6&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">180 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
                                     </div>
+                                    <div class="total-line">TOTAL: <del>$588</del> <strong>$294</strong></div>
+                                    <div class="shipping">+ FREE US SHIPPING</div>
+                                  </div>
+
+                                  <div class="pricing-card">
+                                    <h3>Most Popular</h3>
+                                    <div class="supply">90 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 3-Photoroom.png" alt="Most Popular - 3 Bottles">
+                                    <div class="price">$59 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $98</div>
+                                    <span class="bonus-badge">+SURPRISE</span>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc3&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">60 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
+                                    </div>
+                                    <div class="total-line">TOTAL: <del>$294</del> <strong>$177</strong></div>
+                                    <div class="shipping">+ FREE US SHIPPING</div>
+                                  </div>
 
                                   </div>
                                 </section>
@@ -5520,7 +5376,7 @@ body {
                                                 <ul class="strip3-list">
                                                     <li>
                                                         <img src="./assets/images/831b37e7-7695-43b0-b59f-f9cc54505dc5-hour-glass-R1lGGK2" alt="" class="hourglass">
-                                                        <strong>FocusMax Bottles Remaining:</strong> <span class="countdown">218</span>
+                                                        <strong style="color:#f7cf1e;">FocusMax Bottles Remaining:</strong> <span class="countdown" style="color:#ff3b3b;">218</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -5531,84 +5387,55 @@ body {
 
                                 <!-- Products -->
 
-                                <section class="pricing esconder">
-                                  <div class="pricing-grid">
+                                <section class="esconder">
+                                  <div class="pricing-section">
 
-                                    <!-- Basic -->
-                                    <div class="pricing-card">
-  <div class="card-header">Basic</div>
-  <div class="card-title">2 Bottles</div>
-  <div class="card-supply">60 Day Supply</div>
-  <div class="card-product-img card-product-img-2b">
-    <img src="./assets/images/Mockup 2-Photoroom.png" alt="">
-  </div>
-  <div class="card-prices">
-    <span class="old-price">$198</span>
-    <span class="new-price">$158</span>
-  </div>
-  <div class="card-shipping">+ $9.99 Shipping</div>
-  <ul class="card-benefits">
-    <li class="green"><span class="check">&#10003;</span> You Save $40!</li>
-    <li><span class="check">&#10003;</span> $79 Per Bottle</li>
-    <li><span class="check">&#10003;</span> 90 Days Guarantee</li>
-  </ul>
-  <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc2&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-gray">Buy Now</a>
-  <div class="card-totals">
-    Total: <s>$198</s> <span class="white">$158</span><br>+ $9.99 shipping
-  </div>
-</div>
-
-                                    <!-- Best Value -->
-                                    <div class="pricing-card highlight">
-                                      <div class="card-header">Best Value!</div>
-                                      <div class="card-title elemento-pulante">6 Bottles</div>
-                                      <div class="card-supply">180 Day Supply</div>
-                                      <div class="card-product-img">
-                                        <img src="./assets/images/Mockup 6-Photoroom.png" alt="">
-                                      </div>
-                                      <div class="card-prices">
-                                        <span class="old-price">$588</span>
-                                        <span class="new-price">$294</span>
-                                      </div>
-                                      <div class="card-shipping">Free Shipping</div>
-                                      <ul class="card-benefits">
-                                        <li class="green"><span class="check">&#10003;</span> You Save $294!</li>
-                                        <li class="green"><span class="check">&#10003;</span> 50% Discount</li>
-                                        <li class="green"><span class="check">&#10003;</span> 3 Free Bottles</li>
-                                      </ul>
-                                      <div class="card-extra cyan">180 Day Guarantee</div>
-                                      <div class="card-extra gold elemento-pulante">+SURPRISE</div>
-                                      <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc6&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-green">Buy Now</a>
-                                      <div style="margin-top:16px;">
-                                        <div class="card-bottom-cyan">60 Days Guarantee</div>
-                                        <div class="card-bottom-green">+Free Shipping</div>
-                                      </div>
+                                  <div class="pricing-card">
+                                    <h3>Try Two</h3>
+                                    <div class="supply">60 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 2-Photoroom.png" alt="Try Two - 2 Bottles">
+                                    <div class="price">$79 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $40</div>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc2&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">90 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
                                     </div>
+                                    <div class="total-line">TOTAL: <del>$198</del> <strong>$158</strong></div>
+                                    <div class="shipping">+ $9.99 SHIPPING</div>
+                                  </div>
 
-                                    <!-- Good Value -->
-                                    <div class="pricing-card">
-                                      <div class="card-header">Good Value</div>
-                                      <div class="card-title">3 Bottles</div>
-                                      <div class="card-supply">90 Day Supply</div>
-                                      <div class="card-product-img card-product-img-3b">
-                                        <img src="./assets/images/Mockup 3-Photoroom.png" alt="">
-                                      </div>
-                                      <div class="card-prices">
-                                        <span class="old-price">$294</span>
-                                        <span class="new-price">$177</span>
-                                      </div>
-                                      <div class="card-shipping" style="color:#fff; font-weight:800;">Free Shipping</div>
-                                      <ul class="card-benefits">
-                                        <li class="green"><span class="check">&#10003;</span> You Save $98!</li>
-                                        <li><span class="check">&#10003;</span> 1 Free Bottle</li>
-                                        <li><span class="check">&#10003;</span> 40% Discount</li>
-                                        <li><span class="check">&#10003;</span> 60 Days Guarantee</li>
-                                      </ul>
-                                      <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc3&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="btn-buy btn-buy-gray">Buy Now</a>
-                                      <div class="card-totals">
-                                        Total: <s>$294</s> <span class="white">$177</span><br>+<span class="red">FREE</span> Shipping
-                                      </div>
+                                  <div class="pricing-card featured">
+                                    <h3>Best Value</h3>
+                                    <div class="supply">180 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 6-Photoroom.png" alt="Best Value - 6 Bottles">
+                                    <div class="price">$49 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $294</div>
+                                    <span class="bonus-badge">+SURPRISE</span>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc6&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">180 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
                                     </div>
+                                    <div class="total-line">TOTAL: <del>$588</del> <strong>$294</strong></div>
+                                    <div class="shipping">+ FREE US SHIPPING</div>
+                                  </div>
+
+                                  <div class="pricing-card">
+                                    <h3>Most Popular</h3>
+                                    <div class="supply">90 Day Supply</div>
+                                    <img class="product-image" src="./assets/images/Mockup 3-Photoroom.png" alt="Most Popular - 3 Bottles">
+                                    <div class="price">$59 <small>Per<br>Bottle</small></div>
+                                    <div class="savings">YOU SAVE $98</div>
+                                    <span class="bonus-badge">+SURPRISE</span>
+                                    <a href="https://buygoods.com/secure/checkout.html?aff_id=734&account_id=12827&product_codename=foc3&redirect=aHR0cHM6Ly9mb2N1c21heC5zaXRlL3VzYS9iZy91cC8xLw==" class="cta-button">ADD TO CART</a>
+                                    <div class="guarantee">60 Day Money-Back Guarantee</div>
+                                    <div class="payment-icons">
+                                      <img src="./assets/images/payment-methods.svg" alt="Mastercard, Visa, Amex, Discover">
+                                    </div>
+                                    <div class="total-line">TOTAL: <del>$294</del> <strong>$177</strong></div>
+                                    <div class="shipping">+ FREE US SHIPPING</div>
+                                  </div>
 
                                   </div>
                                 </section>
